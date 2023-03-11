@@ -53,11 +53,15 @@ window.addEventListener("load", function () {
   ];
   cardArray.sort(() => 0.5 - Math.random());
   const gridDisplay = document.getElementById("grid");
-  const resultDisplay = document.getElementById("result");
+  const matchesDisplay = document.getElementById("matches");
+  const attemptsDisplay = document.getElementById("attempt");
+  const finishCard = document.getElementById("finishCard");
+  const goesDisplay = document.getElementById("numOfGoes");
+  const restartBtn = document.getElementById("restartBtn");
   let cardsChosenArray = [];
   let chosenCardIds = [];
   const cardsWon = []
-
+  let tries = []
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
       const card = document.createElement("img");
@@ -89,18 +93,25 @@ window.addEventListener("load", function () {
       alert('sorry try again')
     }
     console.log(cardsWon.length)
-    resultDisplay.textContent = cardsWon.length
+    matchesDisplay.textContent = cardsWon.length
     cardsChosenArray = []
     chosenCardIds = []
 
     if(cardsWon.length == cardArray.length/2){
-      resultDisplay.textContent = 'congratulations you have found all matches'
+      finishCard.classList.add("finishCardActive");
+      goesDisplay.textContent = tries.length / 2;
+
+      //resultDisplay.textContent = 'congratulations you have found all matches'
     }
     
   }
+   
 
   function flipCard() {
     const cardId = this.getAttribute("data-id");
+    tries.push('attempt')
+    attemptsDisplay.textContent = tries.length/2
+    console.log(tries.length);
     cardsChosenArray.push(cardArray[cardId].name);
     chosenCardIds.push(cardId)
     this.setAttribute("src", cardArray[cardId].img);
@@ -108,6 +119,12 @@ window.addEventListener("load", function () {
       setTimeout(checkMatch, 500);
     }
   }
+  restartBtn.addEventListener('click', function(){
+     finishCard.classList.remove("finishCardActive");
+    location.reload()
+
+  })
+  
 
   //load function end
 });

@@ -5,6 +5,7 @@
 }
 body {
   background-color: black;
+  overflow: hidden;
 }
 .wrapper {
   width: 410px;
@@ -19,10 +20,20 @@ h2 {
   color: wheat;
   text-align: center;
 }
-h3 {
+.matches {
+  position: absolute;
   color: wheat;
-  padding-left: 30px;
-  padding-bottom: 40px;
+  top: 29px;
+  left: 15px;
+
+}
+.attempts{
+  position: absolute;
+  color: wheat;
+  right: 30px;
+  top: 29px;
+
+
 }
 
 .grid {
@@ -36,4 +47,49 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
+}
+.finishCard{
+  background-color: brown;
+  border: red 2px solid;
+  border-radius: 15px;
+  width: 90%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.congratulations{
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: wheat;
+}
+p{
+  color: wheat;
+  font-size: 1.5rem;
+}
+.restartBtn{
+  margin-top: 20px;
+  width: 120px;
+  height: 35px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: wheat solid 1px;
+  border-radius: 10px;
+  box-shadow: white 2px 2px 2px;
+  color: wheat;
+  background-color: black;
+  cursor: pointer;
+}
+.restartBtn:hover{
+  box-shadow:inset white 1px 1px 1px;
+}
+.finishCardActive{
+  display: flex;
 }

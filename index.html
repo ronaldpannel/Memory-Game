@@ -11,7 +11,16 @@
     <div class="wrapper">
       <div class="grid" id="grid"></div>
       <h2>Memory Game</h2>
-      <h3>Score: <span id="result"></span></h3>
+      <h4 class="matches">Matches: <span id="matches">0</span></h4>
+      <h4 class="attempts">Attempts: <span id="attempt">0</span></h4>
+      <div class="finishCard" id="finishCard">
+        <p class="congratulations">congratulations!</p>
+        <br />
+        <p>You Have found all matches</p>
+        <p>you took: <span id="numOfGoes">?</span> goes</p>
+
+        <button id="restartBtn" class="restartBtn">Try Again</button>
+      </div>
     </div>
 
     <script src="index.js"></script>
